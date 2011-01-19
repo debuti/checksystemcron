@@ -66,7 +66,7 @@ def checkInput():
         
     else:
         return arguments
-   
+
 def readConfig():
     '''This procedure returns the program properties file
     '''
@@ -100,7 +100,7 @@ def main(email):
             if shellutils.extension(name) == 'py':
                 (file, pathname, description) = imp.find_module(shellutils.filename(name))
                 currentCheck = imp.load_module(shellutils.filename(name), file, pathname, description)
-   
+
                 currentCheckErrors = currentCheck.check(properties)
                 
                 if currentCheckErrors != None:
@@ -117,7 +117,7 @@ def main(email):
         generalutils.mail(gmail_user, gmail_pwd, email, _name + " report", str(errors))
         
     saveConfig(properties)
-   
+
 # Entry point
 if __name__ == '__main__':
     parameters = checkInput()
